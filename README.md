@@ -1,3 +1,9 @@
+Install `vantoozz/hello` package.
+
+Then update the `SayHelloCommand` to be using that package instead of simple string, e.g.:
+
+
+```diff
 <?php declare(strict_types=1);
 
 namespace Vantoozz\UpdateDependenciesTask;
@@ -5,36 +11,18 @@ namespace Vantoozz\UpdateDependenciesTask;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
++use Vantoozz\Hello\Hello;
 
 /**
  * Class SayHelloCommand
  * @package Vantoozz\UpdateDependenciesTask
  */
 final class SayHelloCommand extends Command
-{
-    /**
-     * @var string
-     */
-    protected static $defaultName = 'say-hello';
-
-    /**
-     *
-     */
-    protected function configure(): void
-    {
-        $this
-            ->setDescription('Says hello')
-            ->setHelp('This command says hello');
-    }
-
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int
-     */
+{   
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->writeln('Hello!');
-        return 0;
+-        $output->writeln('Hello!');
++        $output->writeln(new Hello('Ivan'));
     }
 }
+```
