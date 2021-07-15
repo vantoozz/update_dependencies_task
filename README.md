@@ -1,6 +1,10 @@
+###### 1
+
 Install `vantoozz/hello` package.
 
-Then update the `SayHelloCommand` to be using that package instead of simple string, e.g.:
+###### 2
+
+Update the `SayHelloCommand` to be using that package instead of simple string, e.g.:
 
 
 ```diff
@@ -25,4 +29,11 @@ final class SayHelloCommand extends Command
 +        $output->writeln(new Hello('Ivan'));
     }
 }
+```
+###### 3
+
+Run the application
+
+```shell
+php app.php say-hello
 ```
