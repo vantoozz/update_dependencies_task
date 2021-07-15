@@ -7,7 +7,7 @@ use Vantoozz\UpdateDependenciesTask\SayHelloCommand;
 
 $application = new Application();
 
-$application->setName("Update Dependencies Task");
+$application->setName('Update Dependencies Task');
 
 $application->add(new SayHelloCommand());
 
